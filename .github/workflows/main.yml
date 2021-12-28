@@ -35,10 +35,7 @@ jobs:
               run: npm install ts-node
 
             - name: Install derw
-              run: npm install @eeue56/derw@0.0.3-2
-
-            - name: Compile stdlib against derw
-              run: npx @eeue56/derw@0.0.3-2 --files src/*.derw --output ./
+              run: npm install @eeue56/derw@0.0.3-3
 
             - name: Run test
-              run: npx @eeue56/bach
+              run: npx @eeue56/derw@0.0.3-3 --test
