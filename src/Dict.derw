@@ -1,0 +1,15 @@
+import "./Maybe" exposing (Maybe, Just, Nothing)
+
+exposing (get)
+
+get: a -> any -> Maybe b
+get key dict =
+    let
+        value: b
+        value =
+            dict[key]
+    in
+        if value == undefined then
+            Nothing
+        else
+            Just { value: value }

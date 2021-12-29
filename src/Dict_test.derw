@@ -1,0 +1,19 @@
+import "./Test" exposing (equals)
+import "./Dict" exposing (get)
+import "./Maybe" exposing (Just, Nothing, Maybe)
+
+exposing (testGetWithValue, testGetWithNoValue)
+
+justName: Maybe any
+justName =
+    Just { value: "Noah" }
+
+testGetWithValue: boolean -> void
+testGetWithValue a? =
+    get "name" { name: "Noah" }
+        |> equals justName
+
+testGetWithNoValue: boolean -> void
+testGetWithNoValue a? =
+    get "age" { name: "Noah" }
+        |> equals Nothing
