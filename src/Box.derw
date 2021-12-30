@@ -1,0 +1,41 @@
+exposing (RawJavascriptType, UndefinedValue, Boolean, Number, String, FunctionValue, ObjectValue, boxValue)
+exposing (get)
+import "./kernel_box" exposing (getTypeOf)
+import "./Maybe" exposing (Maybe, Just, Nothing)
+
+type RawJavascriptType =
+    UndefinedValue
+    | Boolean { value: boolean }
+    | Number { value: number }
+    | String { value: string }
+    | FunctionValue { value: any }
+    | ObjectValue { value: any }
+
+boxValue: any -> RawJavascriptType
+boxValue value =
+    case getTypeOf value of
+        "undefined" -> UndefinedValue
+        "boolean" -> Boolean { value: value }
+        "number" -> Number { value: value }
+        "string" -> String { value: value }
+        "function" -> FunctionValue { value: value }
+        "object" -> ObjectValue { value: value }
+        default -> ObjectValue { value: value }
+
+unsafeGet: a -> any -> Maybe b
+unsafeGet key dict =
+    let
+        value: b
+        value =
+            dict[key]
+    in
+        if value == undefined then
+            Nothing
+        else
+            Just { value: value }
+
+get: any -> RawJavascriptType -> Maybe any
+get key value =
+    case key of
+        ObjectValue { value } -> unsafeGet key value
+        default -> Nothing

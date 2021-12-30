@@ -1,0 +1,81 @@
+import "./Test" exposing (equals)
+
+import "./Box" exposing (RawJavascriptType, boxValue, UndefinedValue, Boolean, String, Number, FunctionValue, ObjectValue, get)
+import "./Maybe" exposing (Maybe, Just, Nothing)
+exposing (testBoolean, testNumber, testString, testUndefined, testFunction, testObject, testMissingGet)
+
+rawUndefined: RawJavascriptType
+rawUndefined =
+    UndefinedValue
+
+testUndefined: boolean -> void
+testUndefined a? =
+    boxValue undefined
+        |> equals rawUndefined
+
+rawBoolean: RawJavascriptType
+rawBoolean =
+    Boolean { value: true }
+
+testBoolean: boolean -> void
+testBoolean a? =
+    boxValue true
+        |> equals rawBoolean
+
+rawNumber: RawJavascriptType
+rawNumber =
+    Number { value: 9001 }
+
+testNumber: boolean -> void
+testNumber a? =
+    boxValue 9001
+        |> equals rawNumber
+
+rawString: RawJavascriptType
+rawString =
+    String { value: "hello" }
+
+testString: boolean -> void
+testString a? =
+    boxValue "hello"
+        |> equals rawString
+
+fn: a -> a
+fn x =
+    x
+
+rawFunction: RawJavascriptType
+rawFunction =
+    FunctionValue { value: fn }
+
+testFunction: boolean -> void
+testFunction a? =
+    boxValue fn
+        |> equals rawFunction
+
+obj: any
+obj =
+    { name: "Hello" }
+
+rawObject: RawJavascriptType
+rawObject =
+    ObjectValue { value: obj }
+
+testObject: boolean -> void
+testObject a? =
+    boxValue obj
+        |> equals rawObject
+
+hello: Maybe any
+hello =
+    Just { value: "Hello" }
+
+testGet: boolean -> void
+testGet a? =
+    get "name" rawObject
+        |> equals hello
+
+testMissingGet: boolean -> void
+testMissingGet a? =
+    get "name" rawString
+        |> equals Nothing
