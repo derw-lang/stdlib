@@ -3,11 +3,11 @@ exposing (testMapWithJust, testMapWithNothing, testWithDefaultWithJust, testWith
 import "./Test" exposing (equals)
 import "./Maybe" exposing (Maybe, Just, Nothing, map, withDefault)
 
-justOne: Maybe any
+justOne: Maybe number
 justOne =
     Just { value: 1 }
 
-justTwo: Maybe any
+justTwo: Maybe number
 justTwo =
     Just { value: 2 }
 

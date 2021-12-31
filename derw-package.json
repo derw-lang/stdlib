@@ -1,5 +1,10 @@
 {
     "name": "stdlib",
-    "exposing": ["List", "Maybe", "Test"],
-    "dependencies": {}
+    "exposing": [
+        "List",
+        "Maybe",
+        "Test"
+    ],
+    "dependencies": {
+    }
 }

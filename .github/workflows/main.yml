@@ -35,7 +35,7 @@ jobs:
               run: npm install ts-node
 
             - name: Install derw
-              run: npm install @eeue56/derw@0.0.3-4
+              run: npm install @eeue56/derw@0.0.3-6
 
             - name: Run test
-              run: npx @eeue56/derw@0.0.3-4 test
+              run: npx @eeue56/derw@0.0.3-6 test

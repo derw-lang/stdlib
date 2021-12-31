@@ -104,3 +104,5 @@ dist
 .tern-port
 
 src/*.ts
+src/*.elm
+derw-packages
