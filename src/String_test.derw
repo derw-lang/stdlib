@@ -1,0 +1,9 @@
+import "./String" exposing (fromNumber)
+import "./Test" exposing (equals)
+
+exposing (testFromNumber)
+
+testFromNumber: boolean -> void
+testFromNumber a? =
+    fromNumber 10
+        |> equals "10"

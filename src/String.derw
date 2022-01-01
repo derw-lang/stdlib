@@ -1,0 +1,5 @@
+exposing (fromNumber)
+
+fromNumber: number -> string
+fromNumber x =
+    x.toString()
