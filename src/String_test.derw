@@ -1,9 +1,29 @@
-import "./String" exposing (fromNumber)
+import "./String" exposing (fromNumber, split, join)
 import "./Test" exposing (equals)
 
-exposing (testFromNumber)
+exposing (testFromNumber, testEmptySplit, testSplit, testEmptyJoin, testJoin)
 
 testFromNumber: boolean -> void
 testFromNumber a? =
     fromNumber 10
         |> equals "10"
+
+testEmptySplit: boolean -> void
+testEmptySplit a? =
+    split "," ""
+        |> equals [ "" ]
+
+testSplit: boolean -> void
+testSplit a? =
+    split "," "a,b,c"
+        |> equals [ "a", "b", "c" ]
+
+testEmptyJoin: boolean -> void
+testEmptyJoin a? =
+    join "," [ ]
+        |> equals ""
+
+testJoin: boolean -> void
+testJoin a? =
+    join "," [ "a", "b", "c" ]
+        |> equals "a,b,c"

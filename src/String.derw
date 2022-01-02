@@ -1,5 +1,13 @@
-exposing (fromNumber)
+exposing (fromNumber, split, join)
 
 fromNumber: number -> string
 fromNumber x =
     x.toString()
+
+split: string -> string -> List string
+split char str =
+    str.split char
+
+join: string -> List string -> string
+join char xs =
+    xs.join char

@@ -1,6 +1,6 @@
 import "./Maybe" exposing ( Maybe )
 
-exposing (emptyList, map, filter, foldl, filterMap, append)
+exposing (emptyList, map, filter, foldl, filterMap, append, reverse)
 
 emptyList: List any
 emptyList =
@@ -37,3 +37,7 @@ filterMap fn xs =
 append: List a -> List a -> List a
 append xs ys =
     emptyList.concat xs ys
+
+reverse: List any -> List any
+reverse xs =
+    xs.reverse()
