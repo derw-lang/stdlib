@@ -1,6 +1,8 @@
 import "./Task_kernel" exposing (Task)
 import "./Task_kernel" as kernel
 
+exposing (Task, runTask, asTask, andThen, after, map)
+
 runTask: Task a -> void
 runTask task =
     kernel.runTask task
