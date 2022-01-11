@@ -1,0 +1,22 @@
+import "./Task_kernel" exposing (Task)
+import "./Task_kernel" as kernel
+
+runTask: Task a -> void
+runTask task =
+    kernel.runTask task
+
+asTask: (void -> a) -> Task a
+asTask fn =
+    kernel.asTask fn
+
+andThen:  (a -> Task b) -> Task a  -> Task b
+andThen fn task =
+    kernel.andThen fn task
+
+after: (void -> a) -> number -> Task a
+after fn time =
+    kernel.after fn time
+
+map: (a -> b) -> Task a -> Task b
+map fn task =
+    kernel.map fn task
