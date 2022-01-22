@@ -1,6 +1,8 @@
 import "./Maybe" exposing (Maybe, Just, Nothing)
 
-exposing (get)
+import "./Dict_kernel" exposing (kernelUpdate, kernelFromList, kernelToList)
+
+exposing (get, update, values, fromList, toList)
 
 get: a -> any -> Maybe b
 get key dict =
@@ -13,3 +15,24 @@ get key dict =
             Nothing
         else
             Just { value: value }
+
+update: a -> (Maybe v -> Maybe v) -> any -> any
+update a fn dict =
+    kernelUpdate a fn dict
+
+values: any -> List any
+values dict =
+    Object.values dict
+
+type alias ListItem = {
+    key: any,
+    value: any
+}
+
+fromList: List ListItem -> any
+fromList items =
+    kernelFromList items
+
+toList: any -> List ListItem
+toList dict =
+    kernelToList dict

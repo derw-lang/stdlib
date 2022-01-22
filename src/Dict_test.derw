@@ -1,8 +1,8 @@
 import "./Test" exposing (equals)
-import "./Dict" exposing (get)
+import "./Dict" exposing (get, update, values, fromList, toList)
 import "./Maybe" exposing (Just, Nothing, Maybe)
 
-exposing (testGetWithValue, testGetWithNoValue)
+exposing (testGetWithValue, testGetWithNoValue, testMaybeWithValue, testValues, testFromList, testToList)
 
 justName: Maybe any
 justName =
@@ -17,3 +17,39 @@ testGetWithNoValue: boolean -> void
 testGetWithNoValue a? =
     get "age" { name: "Noah" }
         |> equals Nothing
+
+double: any -> any
+double x =
+    case x of
+        Just { value } -> Just { value: value + " " + value }
+        Nothing -> Nothing
+
+testMaybeWithValue: boolean -> void
+testMaybeWithValue a? =
+    update "name" double { name: "Noah" }
+        |> get "name"
+        |> equals (Just { value: "Noah Noah"})
+
+testValues: boolean -> void
+testValues a? =
+    values { name: "Noah" }
+        |> equals [ "Noah" ]
+
+testFromList: boolean -> void
+testFromList a? =
+    let
+        inner: any
+        inner = { key: "name", value: "Noah" }
+    in
+        fromList [ inner ]
+            |> equals { name: "Noah" }
+
+testToList: boolean -> void
+testToList a? =
+    let
+        inner: any
+        inner = { key: "name", value: "Noah" }
+    in
+        toList { name: "Noah" }
+            |> equals [ inner ]
+
