@@ -1,7 +1,7 @@
-exposing (testEmptyList, testMap, testFilter, testFoldl, testFilterMap, testAppend, testReverse)
+exposing (testEmptyList, testMap, testFilter, testFoldl, testFilterMap, testAppend, testReverse, testLength)
 
 import "./Test" exposing (equals)
-import "./List" exposing (emptyList, map, filter, foldl, filterMap, append, reverse)
+import "./List" exposing (emptyList, map, filter, foldl, filterMap, append, reverse, length)
 import "./Maybe" exposing (Maybe, Just, Nothing)
 
 testEmptyList: boolean -> void
@@ -97,3 +97,9 @@ testReverse: boolean -> void
 testReverse a? =
     reverse [ 1, 2 ]
         |> equals [ 2, 1 ]
+
+testLength: boolean -> void
+testLength a? =
+    [ 1, 2, 3 ]
+        |> length
+        |> equals 3

@@ -1,6 +1,8 @@
 import "./Maybe" exposing ( Maybe )
 
-exposing (emptyList, map, filter, foldl, filterMap, append, reverse)
+import "./List_kernel" exposing (kernelLength)
+
+exposing (emptyList, map, filter, foldl, filterMap, append, reverse, length)
 
 emptyList: List any
 emptyList =
@@ -41,3 +43,7 @@ append xs ys =
 reverse: List any -> List any
 reverse xs =
     xs.reverse()
+
+length: List any -> number
+length xs =
+    kernelLength xs
