@@ -32,10 +32,10 @@ jobs:
               run: npm install @eeue56/bach
 
             - name: Install ts-node
-              run: npm install ts-node
+              run: npm install -g ts-node
 
             - name: Install derw
-              run: npm install @eeue56/derw@0.0.3-7
+              run: npm install -g derw@0.0.3-13
 
             - name: Run test
-              run: npx @eeue56/derw@0.0.3-7 test
+              run: derw test
