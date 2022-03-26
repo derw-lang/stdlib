@@ -1,0 +1,15 @@
+import "./Random_kernel" exposing (kernelShuffle, kernelRandomInt, kernelChoice)
+
+exposing (shuffle, randomInt, choice)
+
+shuffle: List a -> List a
+shuffle xs =
+    kernelShuffle xs
+
+randomInt: number -> number -> number
+randomInt lower upper =
+    kernelRandomInt lower upper
+
+choice: number -> List a -> List a
+choice n xs =
+    kernelChoice n xs
