@@ -27,7 +27,7 @@ unsafeGet key dict =
     let
         value: b
         value =
-            dict[key]
+            dict["value"][key]
     in
         if value == undefined then
             Nothing
@@ -35,7 +35,7 @@ unsafeGet key dict =
             Just { value: value }
 
 get: any -> RawJavascriptType -> Maybe any
-get key value =
-    case key of
-        ObjectValue { value } -> unsafeGet key value
+get key val =
+    case val of
+        ObjectValue { value } -> unsafeGet key val
         default -> Nothing
