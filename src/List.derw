@@ -2,7 +2,7 @@ import "./Maybe" exposing ( Maybe )
 
 import "./List_kernel" exposing (kernelLength)
 
-exposing (emptyList, map, filter, foldl, filterMap, append, reverse, length)
+exposing (emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length)
 
 emptyList: List any
 emptyList =
@@ -10,6 +10,10 @@ emptyList =
 
 map: (a -> b) -> List a -> List b
 map fn xs =
+    xs.map fn
+
+indexedMap: (a -> number -> b) -> List a -> List b
+indexedMap fn xs =
     xs.map fn
 
 filter: (a -> boolean) -> List a -> List a
