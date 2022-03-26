@@ -51,3 +51,11 @@ reverse xs =
 length: List any -> number
 length xs =
     kernelLength xs
+
+take: number -> List any -> List any
+take n xs =
+    xs.slice 0 n
+
+drop: number -> List any -> List any
+drop n xs =
+    xs.slice n xs.length
