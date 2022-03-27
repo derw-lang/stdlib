@@ -1,7 +1,9 @@
+import "./kernel_box" exposing ( getTypeOf )
+import "./Maybe" exposing ( Maybe, Just, Nothing )
+
 exposing (RawJavascriptType, UndefinedValue, Boolean, Number, String, FunctionValue, ObjectValue, boxValue)
+
 exposing (get)
-import "./kernel_box" exposing (getTypeOf)
-import "./Maybe" exposing (Maybe, Just, Nothing)
 
 type RawJavascriptType =
     UndefinedValue
@@ -14,13 +16,26 @@ type RawJavascriptType =
 boxValue: any -> RawJavascriptType
 boxValue value =
     case getTypeOf value of
-        "undefined" -> UndefinedValue
-        "boolean" -> Boolean { value: value }
-        "number" -> Number { value: value }
-        "string" -> String { value: value }
-        "function" -> FunctionValue { value: value }
-        "object" -> ObjectValue { value: value }
-        default -> ObjectValue { value: value }
+        "undefined" ->
+            UndefinedValue
+
+        "boolean" ->
+            Boolean { value: value }
+
+        "number" ->
+            Number { value: value }
+
+        "string" ->
+            String { value: value }
+
+        "function" ->
+            FunctionValue { value: value }
+
+        "object" ->
+            ObjectValue { value: value }
+
+        default ->
+            ObjectValue { value: value }
 
 unsafeGet: a -> any -> Maybe b
 unsafeGet key dict =
@@ -37,5 +52,8 @@ unsafeGet key dict =
 get: any -> RawJavascriptType -> Maybe any
 get key val =
     case val of
-        ObjectValue { value } -> unsafeGet key val
-        default -> Nothing
+        ObjectValue { value } ->
+            unsafeGet key val
+
+        default ->
+            Nothing

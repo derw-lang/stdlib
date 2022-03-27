@@ -1,5 +1,5 @@
-import "./String" exposing (fromNumber, split, join)
-import "./Test" exposing (equals)
+import "./String" exposing ( fromNumber, split, join )
+import "./Test" exposing ( equals )
 
 exposing (testFromNumber, testEmptySplit, testSplit, testEmptyJoin, testJoin)
 
@@ -16,7 +16,11 @@ testEmptySplit a? =
 testSplit: boolean -> void
 testSplit a? =
     split "," "a,b,c"
-        |> equals [ "a", "b", "c" ]
+        |> equals [
+        "a",
+        "b",
+        "c"
+    ]
 
 testEmptyJoin: boolean -> void
 testEmptyJoin a? =
@@ -25,5 +29,9 @@ testEmptyJoin a? =
 
 testJoin: boolean -> void
 testJoin a? =
-    join "," [ "a", "b", "c" ]
+    join "," [
+        "a",
+        "b",
+        "c"
+    ]
         |> equals "a,b,c"

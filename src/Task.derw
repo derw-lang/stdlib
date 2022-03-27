@@ -1,4 +1,4 @@
-import "./Task_kernel" exposing (Task)
+import "./Task_kernel" exposing ( Task )
 import "./Task_kernel" as kernel
 
 exposing (Task, runTask, asTask, andThen, after, map)
@@ -11,7 +11,7 @@ asTask: (void -> a) -> Task a
 asTask fn =
     kernel.asTask fn
 
-andThen:  (a -> Task b) -> Task a  -> Task b
+andThen: (a -> Task b) -> Task a -> Task b
 andThen fn task =
     kernel.andThen fn task
 

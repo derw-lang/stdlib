@@ -1,6 +1,5 @@
-import "./Maybe" exposing (Maybe, Just, Nothing)
-
-import "./Dict_kernel" exposing (kernelUpdate, kernelFromList, kernelToList)
+import "./Maybe" exposing ( Maybe, Just, Nothing )
+import "./Dict_kernel" exposing ( kernelUpdate, kernelFromList, kernelToList )
 
 exposing (get, update, values, fromList, toList)
 

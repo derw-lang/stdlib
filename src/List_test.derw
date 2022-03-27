@@ -1,8 +1,8 @@
-exposing (testEmptyList, testMap, testFilter, testFoldl, testFilterMap, testAppend, testReverse, testLength, testTake, testDrop)
+import "./Test" exposing ( equals )
+import "./List" exposing ( emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop )
+import "./Maybe" exposing ( Maybe, Just, Nothing )
 
-import "./Test" exposing (equals)
-import "./List" exposing (emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop)
-import "./Maybe" exposing (Maybe, Just, Nothing)
+exposing (testEmptyList, testMap, testFilter, testFoldl, testFilterMap, testAppend, testReverse, testLength, testTake, testDrop)
 
 testEmptyList: boolean -> void
 testEmptyList a? =
@@ -113,12 +113,22 @@ testAppend a? =
 
 testReverse: boolean -> void
 testReverse a? =
-    reverse [ 1, 2 ]
-        |> equals [ 2, 1 ]
+    reverse [
+        1,
+        2
+    ]
+        |> equals [
+        2,
+        1
+    ]
 
 testLength: boolean -> void
 testLength a? =
-    [ 1, 2, 3 ]
+    [
+        1,
+        2,
+        3
+    ]
         |> length
         |> equals 3
 

@@ -1,18 +1,21 @@
 import "./List" as List
-import "./Random" exposing (shuffle, randomInt, choice)
-import "./Test" exposing (equals)
+import "./Random" exposing ( shuffle, randomInt, choice )
+import "./Test" exposing ( equals )
 
 exposing (testEmptyShuffle, testNonEmptyShuffle, testRandomInt, testEmptyChoice, testChoice)
 
 testEmptyShuffle: boolean -> void
 testEmptyShuffle a? =
-    shuffle []
-        |> equals []
-
+    shuffle [ ]
+        |> equals [ ]
 
 testNonEmptyShuffle: boolean -> void
 testNonEmptyShuffle a? =
-    shuffle [ 1, 2, 3 ]
+    shuffle [
+        1,
+        2,
+        3
+    ]
         |> (\x -> equals 3 x.length)
 
 isBetweenZeroAndTen: number -> boolean
@@ -27,8 +30,8 @@ testRandomInt a? =
 
 testEmptyChoice: boolean -> void
 testEmptyChoice a? =
-    choice 0 []
-        |> equals []
+    choice 0 [ ]
+        |> equals [ ]
 
 testChoice: boolean -> void
 testChoice a? =

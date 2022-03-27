@@ -1,6 +1,5 @@
 import "./Maybe" exposing ( Maybe )
-
-import "./List_kernel" exposing (kernelLength)
+import "./List_kernel" exposing ( kernelLength )
 
 exposing (emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop)
 
@@ -28,17 +27,19 @@ filterMapHelp: (a -> Maybe b) -> a -> List b -> List b
 filterMapHelp fn a xs =
     let
         maybe: Maybe b
-        maybe = fn a
+        maybe =
+            fn a
     in
         case maybe of
             Just { value } ->
                 append xs [ value ]
+
             Nothing ->
                 xs
 
 filterMap: (a -> Maybe b) -> List a -> List b
 filterMap fn xs =
-    foldl (\y ys -> filterMapHelp fn y ys) [] xs
+    foldl (\y ys -> filterMapHelp fn y ys) [ ] xs
 
 append: List a -> List a -> List a
 append xs ys =
