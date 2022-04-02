@@ -53,7 +53,11 @@ testFunction a? =
     boxValue fn
         |> equals rawFunction
 
-obj: any
+type alias Person = {
+    name: string
+}
+
+obj: Person
 obj =
     { name: "Hello" }
 
