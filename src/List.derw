@@ -1,5 +1,5 @@
-import "./Maybe" exposing ( Maybe )
 import "./List_kernel" exposing ( kernelLength, kernelEmptyList )
+import "./Maybe" exposing ( Maybe )
 
 exposing (emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop)
 
@@ -44,7 +44,7 @@ filterMap fn xs =
 append: List a -> List a -> List a
 append xs ys =
     kernelEmptyList()
-        |> \x -> x.concat xs ys
+        |> (\x -> x.concat xs ys)
 
 reverse: List any -> List any
 reverse xs =

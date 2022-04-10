@@ -1,5 +1,5 @@
-import "./kernel_box" exposing ( getTypeOf )
 import "./Maybe" exposing ( Maybe, Just, Nothing )
+import "./kernel_box" exposing ( getTypeOf )
 
 exposing (RawJavascriptType, UndefinedValue, Boolean, Number, String, FunctionValue, ObjectValue, boxValue)
 

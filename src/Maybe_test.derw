@@ -1,5 +1,5 @@
-import "./Test" exposing ( equals )
 import "./Maybe" exposing ( Maybe, Just, Nothing, map, withDefault )
+import "./Test" exposing ( equals )
 
 exposing (testMapWithJust, testMapWithNothing, testWithDefaultWithJust, testWithDefaultWithNothing)
 
@@ -22,8 +22,8 @@ testMapWithJust a? =
 
 testMapWithNothing: boolean -> void
 testMapWithNothing a? =
-    map increment (Nothing)
-        |> equals (Nothing)
+    map increment Nothing
+        |> equals Nothing
 
 testWithDefaultWithJust: boolean -> void
 testWithDefaultWithJust a? =
@@ -32,5 +32,5 @@ testWithDefaultWithJust a? =
 
 testWithDefaultWithNothing: boolean -> void
 testWithDefaultWithNothing a? =
-    withDefault 0 (Nothing)
+    withDefault 0 Nothing
         |> equals 0

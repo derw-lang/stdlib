@@ -1,5 +1,5 @@
-import "./Task_kernel" exposing ( Task )
 import "./Task_kernel" as kernel
+import "./Task_kernel" exposing ( Task )
 
 exposing (Task, runTask, asTask, andThen, after, map)
 

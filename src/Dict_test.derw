@@ -1,6 +1,6 @@
-import "./Test" exposing ( equals )
 import "./Dict" exposing ( get, update, values, fromList, toList )
 import "./Maybe" exposing ( Just, Nothing, Maybe )
+import "./Test" exposing ( equals )
 
 exposing (testGetWithValue, testGetWithNoValue, testMaybeWithValue, testValues, testFromList, testToList)
 
@@ -16,7 +16,7 @@ testGetWithValue a? =
 testGetWithNoValue: boolean -> void
 testGetWithNoValue a? =
     get "age" { name: "Noah" }
-        |> equals (Nothing)
+        |> equals Nothing
 
 double: any -> any
 double x =

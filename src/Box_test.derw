@@ -1,6 +1,6 @@
-import "./Test" exposing ( equals )
 import "./Box" exposing ( RawJavascriptType, boxValue, UndefinedValue, Boolean, String, Number, FunctionValue, ObjectValue, get )
 import "./Maybe" exposing ( Maybe, Just, Nothing )
+import "./Test" exposing ( equals )
 
 exposing (testBoolean, testNumber, testString, testUndefined, testFunction, testObject, testMissingGet)
 
@@ -82,4 +82,4 @@ testGet a? =
 testMissingGet: boolean -> void
 testMissingGet a? =
     get "name" rawString
-        |> equals (Nothing)
+        |> equals Nothing
