@@ -1,4 +1,4 @@
-import "./List" exposing ( emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop )
+import "./List" exposing ( emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop, sort, sortBy )
 import "./Maybe" exposing ( Maybe, Just, Nothing )
 import "./Test" exposing ( equals )
 
@@ -143,3 +143,34 @@ testDrop a? =
     [ 1..5 ]
         |> drop 2
         |> equals [ 3..5 ]
+
+testSort: boolean -> void
+testSort a? =
+    [ 1, 3, 5, 2, 4]
+        |> sort
+        |> equals [ 1, 2, 3, 4, 5 ]
+
+type alias Entry = {
+    x: number,
+    y: string
+}
+
+negative: number
+negative =
+    1 - 2
+
+sortingFunction: Entry -> Entry -> number
+sortingFunction x y =
+    if x.x == y.x then
+        0
+    else
+        if x.x < y.x then
+            negative
+        else
+            1
+
+testSortBy: boolean -> void
+testSortBy a? =
+    [ { x: 1, y: "one" }, { x: 3, y: "three" }, { x: 5, y: "five" }, { x: 2, y: "two" }, { x: 4, y: "four" } ]
+        |> sortBy (\a b -> sortingFunction a b)
+        |> equals [ { x: 1, y: "one" }, { x: 2, y: "two" }, { x: 3, y: "three" }, { x: 4, y: "four" }, { x: 5, y: "five" }]

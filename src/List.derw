@@ -1,7 +1,7 @@
-import "./List_kernel" exposing ( kernelLength, kernelEmptyList )
+import "./List_kernel" exposing ( kernelLength, kernelEmptyList, kernelSort, kernelSortBy )
 import "./Maybe" exposing ( Maybe )
 
-exposing (emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop)
+exposing (emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop, sort, sortBy)
 
 emptyList: List any
 emptyList =
@@ -46,18 +46,26 @@ append xs ys =
     kernelEmptyList()
         |> (\x -> x.concat xs ys)
 
-reverse: List any -> List any
+reverse: List a -> List a
 reverse xs =
     xs.reverse()
 
-length: List any -> number
+length: List a -> number
 length xs =
     kernelLength xs
 
-take: number -> List any -> List any
+take: number -> List a -> List a
 take n xs =
     xs.slice 0 n
 
-drop: number -> List any -> List any
+drop: number -> List a -> List a
 drop n xs =
     xs.slice n xs.length
+
+sort: List a -> List a
+sort xs =
+    kernelSort xs
+
+sortBy: (a -> a -> number) -> List a -> List a
+sortBy fn xs =
+    kernelSortBy fn xs
