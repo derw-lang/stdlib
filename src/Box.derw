@@ -44,7 +44,7 @@ unsafeGet key dict =
         value =
             dict["value"][key]
     in
-        if value == undefined then
+        if value == globalThis.undefined then
             Nothing
         else
             Just { value: value }

@@ -10,7 +10,7 @@ get key dict =
         value =
             dict[key]
     in
-        if value == undefined then
+        if value == globalThis.undefined then
             Nothing
         else
             Just { value: value }
@@ -21,7 +21,7 @@ update a fn dict =
 
 values: any -> List any
 values dict =
-    Object.values dict
+    globalThis.Object.values dict
 
 type alias ListItem = {
     key: any,

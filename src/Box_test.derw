@@ -10,7 +10,7 @@ rawUndefined =
 
 testUndefined: boolean -> void
 testUndefined a? =
-    boxValue undefined
+    boxValue globalThis.undefined
         |> equals rawUndefined
 
 rawBoolean: RawJavascriptType
