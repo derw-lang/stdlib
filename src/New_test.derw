@@ -1,4 +1,4 @@
-import "./New" exposing (makeNew)
+import "./New" exposing (makeNewByName)
 import "./Test" exposing (equals, notEquals)
 
 testNonNewShouldEqualItself: any -> void
@@ -8,18 +8,27 @@ testNonNewShouldEqualItself _ =
 
 testNewShouldntEqualItself: any -> void
 testNewShouldntEqualItself _ =
-    makeNew (\str -> String str) [ "hello" ]
-        |> notEquals (makeNew (\str -> String str) [ "hello" ])
+    let
+        left: String
+        left =
+            makeNewByName "String" [ "hello" ]
+
+        right: String
+        right =
+            makeNewByName "String" [ "hello" ]
+    in
+        left == right
+            |> equals false
 
 testNewShouldHaveSameValueItself: any -> void
 testNewShouldHaveSameValueItself _ =
     let
         left: String
         left =
-            makeNew (\str -> String str) [ "hello" ]
+            makeNewByName "String" [ "hello" ]
 
         right: String
         right =
-            makeNew (\str -> String str) [ "hello" ]
+            makeNewByName "String" [ "hello" ]
     in
         equals (left.toString()) (right.toString())

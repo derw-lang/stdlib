@@ -1,8 +1,13 @@
 import "./New_kernel" as Kernel
 import "./List" as List
 
-exposing (makeNew)
+exposing (makeNew, makeNewByName)
 
 makeNew: any -> List any -> any
 makeNew something args =
     Kernel.makeNew something args
+
+makeNewByName: string -> List any -> any
+makeNewByName name args =
+    Kernel.makeNewByName name args
+
