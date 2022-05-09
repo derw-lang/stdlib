@@ -1,0 +1,25 @@
+import "./New" exposing (makeNew)
+import "./Test" exposing (equals, notEquals)
+
+testNonNewShouldEqualItself: any -> void
+testNonNewShouldEqualItself _ =
+    String "hello"
+        |> equals (String "hello")
+
+testNewShouldntEqualItself: any -> void
+testNewShouldntEqualItself _ =
+    makeNew (\str -> String str) [ "hello" ]
+        |> notEquals (makeNew (\str -> String str) [ "hello" ])
+
+testNewShouldHaveSameValueItself: any -> void
+testNewShouldHaveSameValueItself _ =
+    let
+        left: String
+        left =
+            makeNew (\str -> String str) [ "hello" ]
+
+        right: String
+        right =
+            makeNew (\str -> String str) [ "hello" ]
+    in
+        equals (left.toString()) (right.toString())

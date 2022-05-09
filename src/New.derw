@@ -1,0 +1,8 @@
+import "./New_kernel" as Kernel
+import "./List" as List
+
+exposing (makeNew)
+
+makeNew: any -> List any -> any
+makeNew something args =
+    Kernel.makeNew something args
