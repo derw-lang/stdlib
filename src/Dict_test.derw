@@ -4,7 +4,7 @@ import "./Test" exposing ( equals )
 
 exposing (testGetWithValue, testGetWithNoValue, testMaybeWithValue, testValues, testFromList, testToList)
 
-justName: Maybe any
+justName: Maybe string
 justName =
     Just { value: "Noah" }
 
@@ -18,7 +18,7 @@ testGetWithNoValue a? =
     get "age" { name: "Noah" }
         |> equals Nothing
 
-double: any -> any
+double: Maybe string -> Maybe string
 double x =
     case x of
         Just { value } ->
