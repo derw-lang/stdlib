@@ -1,5 +1,5 @@
-import "./New_kernel" as Kernel
 import "./List" as List
+import "./New_kernel" as Kernel
 
 exposing (makeNew, makeNewByName)
 
