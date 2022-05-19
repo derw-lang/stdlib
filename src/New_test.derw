@@ -1,10 +1,10 @@
-import "./New" exposing (makeNewByName)
-import "./Test" exposing (equals, notEquals)
+import "./New" exposing ( makeNewByName )
+import "./Test" exposing ( equals, notEquals )
 
 testNonNewShouldEqualItself: any -> void
 testNonNewShouldEqualItself _ =
-    String "hello"
-        |> equals (String "hello")
+    String
+        |> equals String
 
 testNewShouldntEqualItself: any -> void
 testNewShouldntEqualItself _ =

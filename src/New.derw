@@ -10,4 +10,3 @@ makeNew something args =
 makeNewByName: string -> List any -> any
 makeNewByName name args =
     Kernel.makeNewByName name args
-
