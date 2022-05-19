@@ -1,0 +1,24 @@
+import "./Maybe" exposing ( Maybe )
+import "./Number_kernel" as Kernel
+
+exposing (parseInt, parseFloat, floor, round, ceil)
+
+parseInt: string -> number -> Maybe number
+parseInt str radix =
+    Kernel.parseInt str radix
+
+parseFloat: string -> Maybe number
+parseFloat str =
+    Kernel.parseFloat str
+
+floor: number -> number
+floor x =
+    globalThis.Math.floor x
+
+round: number -> number
+round x =
+    globalThis.Math.round x
+
+ceil: number -> number
+ceil x =
+    globalThis.Math.ceil x
