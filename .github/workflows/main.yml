@@ -35,7 +35,7 @@ jobs:
               run: npm install -g ts-node
 
             - name: Install derw
-              run: npm install -g derw@0.0.3-18
+              run: npm install -g derw@0.0.4
 
             - name: Run test
               run: derw test
