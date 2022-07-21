@@ -1,4 +1,4 @@
-import "./List" exposing ( emptyList, map, indexedMap, filter, foldl, filterMap, append, reverse, length, take, drop, sort, sortBy )
+import "./List" exposing ( emptyList, map, indexedMap, filter, foldl, foldr, filterMap, append, reverse, length, take, drop, sort, sortBy )
 import "./Maybe" exposing ( Maybe, Just, Nothing )
 import "./Test" exposing ( equals )
 
@@ -73,6 +73,56 @@ testFoldl a? =
             3
         ]
             |> equals 6
+
+testFoldlAppend: boolean -> void
+testFoldlAppend a? =
+    let
+        add: number -> List number -> List number
+        add a xs =
+            a :: xs
+    in
+        foldl add [ ] [
+            1,
+            2,
+            3
+        ]
+            |> equals [
+            3,
+            2,
+            1
+        ]
+
+testFoldr: boolean -> void
+testFoldr a? =
+    let
+        add: number -> number -> number
+        add a b =
+            a + b
+    in
+        foldr add 0 [
+            1,
+            2,
+            3
+        ]
+            |> equals 6
+
+testFoldrAppend: boolean -> void
+testFoldrAppend a? =
+    let
+        add: number -> List number -> List number
+        add a xs =
+            a :: xs
+    in
+        foldr add [ ] [
+            1,
+            2,
+            3
+        ]
+            |> equals [
+            1,
+            2,
+            3
+        ]
 
 testFilterMap: boolean -> void
 testFilterMap a? =
