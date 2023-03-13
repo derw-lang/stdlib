@@ -2,7 +2,9 @@ import "./List" exposing ( emptyList, map, indexedMap, filter, foldl, foldr, fil
 import "./Maybe" exposing ( Maybe, Just, Nothing )
 import "./Test" exposing ( equals )
 
-exposing (testEmptyList, testMap, testFilter, testFoldl, testFilterMap, testAppend, testReverse, testLength, testTake, testDrop)
+exposing ( testEmptyList, testMap, testFilter, testFoldl, testFilterMap, testAppend, testReverse, testLength, testTake, testDrop )
+
+exposing ( snapshotEmptyList, snapshotNumbersList, snapshotRangeList )
 
 testEmptyList: boolean -> void
 testEmptyList a? =
@@ -278,3 +280,19 @@ testSortBy a? =
             y: "five"
         }
     ]
+
+snapshotEmptyList: void -> List any
+snapshotEmptyList _0 =
+    [ ]
+
+snapshotNumbersList: void -> List number
+snapshotNumbersList _0 =
+    [
+        1,
+        2,
+        3
+    ]
+
+snapshotRangeList: void -> List number
+snapshotRangeList _0 =
+    [ 1..10 ]
