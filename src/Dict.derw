@@ -1,7 +1,7 @@
-import "./Dict_kernel" exposing ( kernelUpdate, kernelFromList, kernelToList )
+import "./Dict_kernel" exposing ( kernelUpdate, kernelFromList, kernelToList, kernelInsert )
 import "./Maybe" exposing ( Maybe, Just, Nothing )
 
-exposing (get, update, values, fromList, toList)
+exposing ( get, insert, update, values, fromList, toList )
 
 get: a -> any -> Maybe b
 get key dict =
@@ -14,6 +14,10 @@ get key dict =
             Nothing
         else
             Just { value: value }
+
+insert: key -> value -> any -> any
+insert key value dict =
+    kernelInsert key value dict
 
 update: a -> (Maybe v -> Maybe v) -> any -> any
 update a fn dict =

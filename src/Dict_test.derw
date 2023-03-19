@@ -1,8 +1,8 @@
-import "./Dict" exposing ( get, update, values, fromList, toList )
+import "./Dict" exposing ( get, insert, update, values, fromList, toList )
 import "./Maybe" exposing ( Just, Nothing, Maybe )
 import "./Test" exposing ( equals )
 
-exposing (testGetWithValue, testGetWithNoValue, testMaybeWithValue, testValues, testFromList, testToList)
+exposing ( testGetWithValue, testGetWithNoValue, testMaybeWithValue, testValues, testFromList, testToList )
 
 justName: Maybe string
 justName =
@@ -32,6 +32,11 @@ testMaybeWithValue a? =
     update "name" double { name: "Noah" }
         |> get "name"
         |> equals (Just { value: "Noah Noah" })
+
+testInsert: boolean -> void
+testInsert a? =
+    insert "name" 1 { }
+        |> equals { name: 1 }
 
 testValues: boolean -> void
 testValues a? =
