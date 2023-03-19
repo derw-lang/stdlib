@@ -1,6 +1,6 @@
 import assert
 
-exposing (equals, notEquals)
+exposing ( equals, notEquals )
 
 equals: a -> a -> void
 equals expected actual =

@@ -1,7 +1,7 @@
 import "./Maybe" exposing ( Maybe, Just, Nothing, map, withDefault )
 import "./Test" exposing ( equals )
 
-exposing (testMapWithJust, testMapWithNothing, testWithDefaultWithJust, testWithDefaultWithNothing)
+exposing ( testMapWithJust, testMapWithNothing, testWithDefaultWithJust, testWithDefaultWithNothing )
 
 justOne: Maybe number
 justOne =

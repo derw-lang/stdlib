@@ -1,7 +1,7 @@
 import "./Maybe" exposing ( Maybe )
 import "./Number_kernel" as Kernel
 
-exposing (parseInt, parseFloat, floor, round, ceil)
+exposing ( parseInt, parseFloat, floor, round, ceil )
 
 parseInt: string -> number -> Maybe number
 parseInt str radix =

@@ -1,7 +1,7 @@
 import "./List" as List
 import "./New_kernel" as Kernel
 
-exposing (makeNew, makeNewByName)
+exposing ( makeNew, makeNewByName )
 
 makeNew: any -> List any -> any
 makeNew something args =

@@ -2,7 +2,7 @@ import "./Box" exposing ( RawJavascriptType, boxValue, UndefinedValue, Boolean, 
 import "./Maybe" exposing ( Maybe, Just, Nothing )
 import "./Test" exposing ( equals )
 
-exposing (testBoolean, testNumber, testString, testUndefined, testFunction, testObject, testGet, testMissingGet)
+exposing ( testBoolean, testNumber, testString, testUndefined, testFunction, testObject, testGet, testMissingGet )
 
 rawUndefined: RawJavascriptType
 rawUndefined =

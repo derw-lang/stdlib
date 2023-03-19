@@ -1,6 +1,6 @@
 import "./Random_kernel" exposing ( kernelShuffle, kernelRandomInt, kernelChoice )
 
-exposing (shuffle, randomInt, choice)
+exposing ( shuffle, randomInt, choice )
 
 shuffle: List a -> List a
 shuffle xs =

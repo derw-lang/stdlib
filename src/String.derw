@@ -1,4 +1,4 @@
-exposing (fromNumber, split, join)
+exposing ( fromNumber, split, join )
 
 fromNumber: number -> string
 fromNumber x =

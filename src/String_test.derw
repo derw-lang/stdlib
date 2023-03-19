@@ -1,7 +1,7 @@
 import "./String" exposing ( fromNumber, split, join )
 import "./Test" exposing ( equals )
 
-exposing (testFromNumber, testEmptySplit, testSplit, testEmptyJoin, testJoin)
+exposing ( testFromNumber, testEmptySplit, testSplit, testEmptyJoin, testJoin )
 
 testFromNumber: boolean -> void
 testFromNumber a? =

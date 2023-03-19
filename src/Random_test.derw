@@ -2,7 +2,7 @@ import "./List" as List
 import "./Random" exposing ( shuffle, randomInt, choice )
 import "./Test" exposing ( equals )
 
-exposing (testEmptyShuffle, testNonEmptyShuffle, testRandomInt, testEmptyChoice, testChoice)
+exposing ( testEmptyShuffle, testNonEmptyShuffle, testRandomInt, testEmptyChoice, testChoice )
 
 testEmptyShuffle: boolean -> void
 testEmptyShuffle a? =
