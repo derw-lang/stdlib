@@ -52,7 +52,7 @@ append xs ys =
 
 reverse: List a -> List a
 reverse xs =
-    xs.reverse()
+    xs.slice().reverse()
 
 length: List a -> number
 length xs =
