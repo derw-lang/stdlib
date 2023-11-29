@@ -2,7 +2,12 @@ import { Just, Maybe, Nothing } from "./Maybe";
 
 export function parseInt(str: string, radix: number): Maybe<number> {
     try {
-        return Just({ value: globalThis.parseInt(str, radix) });
+        const x = globalThis.parseInt(str, radix);
+        if (isNaN(x)) {
+            return Nothing({});
+        } else {
+            return Just({ value: x});
+        }
     } catch (e) {
         return Nothing({});
     }
@@ -10,7 +15,12 @@ export function parseInt(str: string, radix: number): Maybe<number> {
 
 export function parseFloat(str: string): Maybe<number> {
     try {
-        return Just({ value: globalThis.parseFloat(str) });
+        const x = globalThis.parseFloat(str);
+        if (isNaN(x)) {
+            return Nothing({});
+        } else {
+            return Just({ value: x});
+        }
     } catch (e) {
         return Nothing({});
     }
